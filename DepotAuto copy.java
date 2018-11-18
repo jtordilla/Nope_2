@@ -155,7 +155,7 @@ public class DepotAuto extends Base {
 
             case 6: //move intake
                 if(timer.seconds() < 0.65){
-                    intakeMove.setPower(0.36);
+                    intakeMove.setPower(0.26); //0.36
                 }
 
                 else{
@@ -233,19 +233,8 @@ public class DepotAuto extends Base {
 
                 break;
 
-            case 11: //intake back
 
-                if(timer.seconds() < 0.65){
-                    intakeMove.setPower(-0.36);
-                }
-                else{
-                    stop_all();
-                    timer.reset();
-                    stage++;
-                }
-
-
-            case 12: //go forward
+            case 11: //go forward
 
                 if(timer.seconds() < 1){ //change
                     goStraight();
@@ -257,16 +246,16 @@ public class DepotAuto extends Base {
 
                 break;
 
-            case 13: //drop marker
+            case 12: //drop marker
 
                 servoTest.setPosition(1.0);
                 timer.reset();
                 stage ++;
                 break;
 
-            case 14: //climber
+            case 13: //climber
 
-                if(timer.seconds() < 1.7){ //change
+                if(timer.seconds() < 1.7){ //change - 1.8
                     climber.setPower(fastSpeed);
                 }
                 else{

@@ -64,7 +64,7 @@ public class CraterAuto extends Base {
 
             case 0://detach climber
 
-                if (timer.seconds() < 2.32) {
+                if (timer.seconds() < 2.38) {
                     climber.setPower(-fastSpeed);
                 }
 
@@ -92,7 +92,7 @@ public class CraterAuto extends Base {
 
             case 2://go back
 
-                if(timer.seconds() < 0.07){
+                if(timer.seconds() < 0.09){
                     goBack();
                 }
 
@@ -152,7 +152,7 @@ public class CraterAuto extends Base {
 
             case 6: //move intake
                 if(timer.seconds() < 0.65){
-                    intakeMove.setPower(0.36);
+                    intakeMove.setPower(0.26); // 0.36
                 }
 
                 else{
@@ -181,9 +181,36 @@ public class CraterAuto extends Base {
 
                 break;
 
-            case 8: //climber
+            case 8: //intake back
 
-                if(timer.seconds() < 1.8){
+                if(timer.seconds() < 0.65){
+                    intakeMove.setPower(-0.26); //change -0.36
+                }
+                else{
+                    stop_all();
+                    timer.reset();
+                    stage++;
+                }
+
+            case 9: //go straight for 1 second
+
+                if (timer.seconds() < 0.3) {
+                    goStraight();
+                }
+
+                else{
+
+                    stop_all();
+                    timer.reset();
+                    stage++;
+
+                }
+
+                break;
+
+            case 10: //climber
+
+                if(timer.seconds() < 1){ //change 1.8
                     climber.setPower(fastSpeed);
                 }
                 else{
